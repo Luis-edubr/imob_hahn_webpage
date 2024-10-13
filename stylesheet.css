@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima:wght@700&family=Poppins:wght@600&family=Roboto:ital,wght@1,300&display=swap');
+
+* {
+    font-family: Poppins;
+}
+/* Remover padding e margem padrão do body */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos para o header */
+header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    
+    flex-direction: row;
+    align-items: center;
+    padding: 0 1vh 1vh;
+    background: linear-gradient(89deg, #408C40 0%, #26AA26 100%);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo alinhado à esquerda */
+header img {
+    width: auto;
+    height: 6vh;
+
+}
+
+/* Navegação (ul e itens de lista) */
+nav ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+    margin-right: 2vw;
+}
+
+nav ul li {
+    margin-right: 2vw;
+    font-size: 2.5vh;
+    font-weight: bold;
+    white-space: nowrap; /* Previne quebra de palavras */
+}
+
+nav ul li:last-child {
+    margin-right: 10%;
+}
+
+/* Garantir que o conteúdo não ultrapasse a tela */
+header, nav ul {
+    width: 100%;
+    overflow: hidden; /* Evitar que o conteúdo suma para fora da tela */
+}
