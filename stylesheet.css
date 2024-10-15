@@ -70,6 +70,10 @@ header, nav ul {
     overflow: hidden; /* Evitar que o conteúdo suma para fora da tela */
 }
 
+.cell-icon{
+    display: none;
+}
+
 main {
     width: 100%;
     margin: 0;
@@ -79,8 +83,7 @@ main {
 
 .image-section{
     width: 100%;
-    height: 40%;
-    position: relative;
+    position: absolute;
 }
 
 .image-section img{
@@ -89,20 +92,24 @@ main {
 }
 
 .text-overlay {
-    position: absolute; /* Para posicionar em relação à .image-section */
-    top: 30%;
-    left: 35%;
+    position: absolute; /* Posicionamento em relação à div pai */
+    top: 40%;
+    left: 35%; /* Ajustado para centralizar horizontalmente */
     width: 28%;
-    height: 30%;
+    height: auto; /* Ajuste automático da altura com base no conteúdo */
     transform: translate(-50%, -50%);
-    text-align:left;
+    text-align: left;
     color: var(--branco, #E1E1E1);
-    font-size: 30px;
+    font-size: 2.5vw; /* Escala o tamanho do texto de acordo com a largura da janela */
     font-style: normal;
     font-weight: 700;
-    line-height: normal;
+    line-height: 1.2; /* Ajuste de espaçamento entre linhas */
     text-transform: uppercase;
+    max-width: 90%; /* Limita a largura máxima para evitar que o texto ultrapasse a div */
+    max-height: 100%; /* Limita a altura máxima */
+    overflow: hidden; /* Garante que o texto não saia da área */
 }
+
 
 .filter-overlay {
     transform: translate(-50%);
@@ -150,12 +157,16 @@ main {
     text-align: center;
     justify-content: center;
     color: white;
-    font-size: 1.4em;
+    font-size: 80%;
     cursor: pointer;
     z-index: 2;
     height: 60%;
     width: 13%;
     
+  }
+
+  .filter-top-bttn-cell {
+    display: none;
   }
   
 .filter-top-bttn.active {
@@ -179,7 +190,7 @@ main {
     align-items: center; 
     position: relative;
     color: #000;
-    font-size: 1.4em;
+    font-size: 100%;
     width: 100%; 
     height: 100%; 
     font-style: normal;
@@ -234,7 +245,7 @@ main {
     border: 1px solid #ccc;
     border-radius: 10%;
     transition: border-color 0.3s ease;
-    font-size: 1.4em;
+    font-size: 100%;
     color: #000;
     background-color: #E1E1E1;
     border-radius: 12px;
@@ -245,8 +256,11 @@ main {
   }
 
 .buscar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 100%;
-    font-size: 20px;
+    font-size: 100%;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
@@ -255,3 +269,137 @@ main {
     height: 60%;
     width: 25%;
   }
+
+@media (max-width: 768px) {
+    header {
+        width: 100%;
+        height: 5vh;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        padding: 0 0.5vh 0.5vh;
+        background: linear-gradient(89deg, #408C40 0%, #26AA26 100%);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    /* Logo alinhado à esquerda */
+    header img {
+        width: auto;
+        height: 5vh;
+    
+    }
+    
+    /* Navegação (ul e itens de lista) */
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        list-style: none;
+        margin-right: 2vw;
+    }
+    
+    nav ul li {
+        margin-right: 2vw;
+        font-size: 1.5vh;
+        font-weight: bold;
+        white-space: nowrap; /* Previne quebra de palavras */
+    }
+    
+    nav ul li :hover{
+        color: yellow;
+    }
+    
+    nav ul li:last-child {
+        margin-right: 10%;
+    }
+    
+    /* Garantir que o conteúdo não ultrapasse a tela */
+    header, nav ul {
+        width: 100%;
+        overflow: hidden; /* Evitar que o conteúdo suma para fora da tela */
+    }
+
+    .desktop-icon {
+        display: none;
+    }
+
+    .cell-icon {
+        display: flex;
+    }
+
+    .image-section{
+        width: 100%;
+        height: 80%;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .image-section img{
+        width: 102.85%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .text-overlay {
+        position: absolute; /* Posicionamento em relação à div pai */
+        top: 20%;
+        left: 50%; /* Ajustado para centralizar horizontalmente */
+        width: 40%;
+        text-align: left;
+        color: var(--branco, #E1E1E1);
+        font-size: 4vw; /* Escala o tamanho do texto de acordo com a largura da janela */
+        font-weight: 700;
+        line-height: 1.2; /* Ajuste de espaçamento entre linhas */
+        text-transform: uppercase;
+        max-width: 90%; /* Limita a largura máxima para evitar que o texto ultrapasse a div */
+        max-height: 100%; /* Limita a altura máxima */
+        overflow: hidden; /* Garante que o texto não saia da área */
+    }
+
+    .filter-overlay {
+        height: 60%;
+        bottom: none;
+    }
+
+    .filter-overlay form{
+        justify-content: center;
+        gap: 8%;
+        align-items: center;
+        
+    }
+
+    .filter-top {
+        flex-direction: column;
+
+    }
+    .filter-top-bttn{
+        width: 50%;
+    }
+    .dropdown{
+        width: 50%;
+        margin-top: 4%;
+    }
+    .dropdown-dormitorios{
+        width: 70%;
+    }
+    .filter-top-bttn-cell{
+        display: flex;
+    }
+    .filter-bot-bttn{
+        display: none;
+    }
+    .filter-bot{
+        height: 20%;
+        display: flex;
+        justify-content: center;
+        width: 50%;
+        gap: 0;
+    }
+    .buscar {
+        width: 100%;
+        height: 50%;
+    }
+}
