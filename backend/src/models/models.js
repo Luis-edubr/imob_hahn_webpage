@@ -10,15 +10,16 @@ async function getAllHouses () {
     }
 }
 
-async function getHouseByParameter(data){
+async function getHouseByParameter(data){ // precisa montar tipo assim: { dormitorios: 3, banheiros: 3 }
 
     try {
-        const house = await prisma.casa.findMany({
+        const houses = await prisma.casa.findMany({
             where: data
         })
-        console.log(house);
+        return houses;
     } catch (error) {
         console.error(error);
+        throw error;
     }
 }
 
@@ -26,5 +27,5 @@ getHouseByParameter();
 
 module.exports = {
     getAllHouses,
-
+    getHouseByParameter
 }

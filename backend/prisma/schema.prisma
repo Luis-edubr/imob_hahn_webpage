@@ -17,7 +17,7 @@ model casa {
   garagem       Int?
   churrasqueira Int?
   patio         Boolean?
-  cidade        String?      @db.VarChar(255)  // alterado de enum para string
+  cidade        String?      @db.VarChar(255)  
   bairro        String?      @db.VarChar(255)
 }
 
