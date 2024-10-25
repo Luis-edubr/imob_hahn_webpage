@@ -1,0 +1,23 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model casa {
+  idcasa        Int          @id @default(autoincrement())
+  isoffer       Boolean?     @default(false)
+  valor         Float?       @db.Float
+  dormitorios   Int?
+  banheiros     Int?
+  suites        Int?
+  garagem       Int?
+  churrasqueira Int?
+  patio         Boolean?
+  cidade        String?      @db.VarChar(255)  // alterado de enum para string
+  bairro        String?      @db.VarChar(255)
+}
+
