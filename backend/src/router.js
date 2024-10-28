@@ -6,5 +6,6 @@ dotenv.config();
 const houseController = require('./controller/controller')
 
 router.get('/allHouses', houseController.getAllHouses);
+router.post('/getHouseByParameter', houseController.getHouseByParameter);
 
-module.exports = router;
+module.exports = router; 

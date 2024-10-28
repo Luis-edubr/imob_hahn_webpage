@@ -10,6 +10,13 @@ body {
     box-sizing: border-box;
 }
 
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
 button{
     border: none;
     outline: none;
@@ -76,9 +83,11 @@ header, nav ul {
 
 main {
     width: 100%;
+    height: 80%;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    flex: 1;
 }
 
 .image-section{
@@ -119,14 +128,14 @@ main {
     background: rgba(159, 157, 157, 0.50);
     left: 50%;
     bottom: 3.81%;
-    overflow: hidden;
 }
 
-.filter-overlay form{
+.form{
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    z-index: 1;
 }
 
 .filter-top{
@@ -168,8 +177,9 @@ main {
   .filter-top-bttn-cell {
     display: none;
   }
-  
-.filter-top-bttn.active {
+
+
+.filter-bttns.active{
     background: rgb(234, 234, 120);
 }
 
@@ -178,6 +188,7 @@ main {
     height: 60%;
     width: 15%;
     align-items: center;
+    z-index: 1;
   }
 .dropdown-title{
     height: 100%;
@@ -204,18 +215,41 @@ main {
     z-index: 1;
 }
 
+.dropdown-title.select-clicked {
+    z-index: 10000; /* z-index elevado quando o menu está aberto */
+}
+
   .menu{
+    width: 100%;
+    transition: 0.2s ease-in-out;
     list-style: none;
     background: green;
     border: 1px green solid;
     box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.2);
     border-radius: 0.5em;
     color: black;
-    top: 1px;
-    position: relative;
+    top: 100%;
+    left: 0;
+    position: absolute;
     opacity: 0;
     transition: 0.2s;
     display: none;
+    z-index: 10000;
+  }
+  .tipo {
+    z-index: 50;
+  }
+  .bairro{
+    z-index: 49;
+  }
+  .dormitorios{
+    z-index: 48;
+  }
+  .cidade{
+    z-index: 47;
+  }
+  .custom-input{
+    z-index: 46;
   }
   
   .menu li{
@@ -231,12 +265,13 @@ main {
   
   .active{
     background-color: green;
+    z-index: 10000;
   }
   
   .menu-open{
     display: block;
     opacity: 1;
-    z-index: 0;
+    z-index: 10000;
   }  
 
   .custom-input {
@@ -259,19 +294,61 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
     font-size: 100%;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
     background: #408C40;
     border-radius: 10px;
     height: 60%;
     width: 25%;
   }
 
+footer {
+    position: relative;
+    top: 50%;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.footer-info{
+    display: flex;
+    flex-direction: row;
+    gap: 5%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: auto;
+    background: linear-gradient(to right, #dfdc77, #bdbb56, #d4d46c, #ccc864, #d3cc6c);;
+}
+.footer-rights{
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    background: linear-gradient(89deg, #408C40 0%, #26AA26 100%);
+    align-items: center;
+}
+.footer-rights p {
+    margin: 0;
+    color: white;
+    font-size: 70%;
+}
+.footer-rights img {
+    width: auto;
+    height: 6vh;
+}
+
+.menu2 a {
+    color: black;
+}
+
 @media (max-width: 768px) {
-    header {
+    header { 
         width: 100%;
         height: 5vh;
         display: flex;
@@ -362,13 +439,15 @@ main {
     .filter-overlay {
         height: 60%;
         bottom: none;
+        width: 70%;
     }
 
-    .filter-overlay form{
+    .form{
         justify-content: center;
         gap: 8%;
         align-items: center;
-        
+        width: 100%;
+        height: 100%;
     }
 
     .filter-top {
@@ -376,17 +455,27 @@ main {
 
     }
     .filter-top-bttn{
-        width: 50%;
+        width: 60%;
     }
     .dropdown{
-        width: 50%;
+        width: 60%;
         margin-top: 4%;
     }
     .dropdown-dormitorios{
         width: 70%;
     }
+    .menu {
+        align-items: center;
+        text-align: center;
+    }
+    .menu li{
+        padding: 1em 0.1em;
+        margin-left: 0;
+        border-radius: 0.5em;
+        cursor: pointer;
+      }
     .filter-top-bttn-cell{
-        display: flex;
+        display: block;
     }
     .filter-bot-bttn{
         display: none;
@@ -396,10 +485,29 @@ main {
         display: flex;
         justify-content: center;
         width: 50%;
-        gap: 0;
+
     }
     .buscar {
         width: 100%;
         height: 50%;
+    }
+
+    footer{
+        padding-bottom: 0px;
+    }
+
+    .footer-info{
+        flex-direction: column;
+        height: auto;
+        text-align: center;
+    }
+    .insta-face{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 5%;
+    }
+    .footer-rights p{
+        font-size: 60%;
     }
 }

@@ -39,15 +39,15 @@
             </p>
         </div>
         <div class="filter-overlay">
-            <form action="">
+            <div class="form">
                 <div class="filter-top">
-                    <button class="filter-top-bttn" id="comprar">
+                    <button class="filter-top-bttn filter-bttns" id="comprar">
                         COMPRAR
                     </button>
-                    <button class="filter-top-bttn filter-top-bttn-cell" id="alugar">
+                    <button class="filter-top-bttn filter-top-bttn-cell filter-bttns" id="alugar">
                         ALUGAR
                     </button>
-                    <div class="dropdown" id="selectTipo">
+                    <div class="dropdown tipo" id="tipo">
                         <div id="select" class="dropdown-title">
                             <span class="selected">TIPO <iconify-icon icon="iconamoon:arrow-down-2"  style="color: black"></iconify-icon></span>
                         </div>
@@ -58,7 +58,7 @@
                             <li data-value="terreno">TERRENO</li>
                         </ul>
                     </div>
-                    <div class="dropdown" id="selectTipo">
+                    <div class="dropdown bairro" id="bairro">
                         <div id="select" class="dropdown-title">
                             <span class="selected">BAIRRO <iconify-icon icon="iconamoon:arrow-down-2"  style="color: black"></iconify-icon></span>
                         </div>
@@ -69,13 +69,13 @@
                             <li data-value="Arvorezinha">ARVOREZINHA</li>
                         </ul>
                     </div>
-                    <div class="dropdown dropdown-dormitorios" id="selectTipo">
+                    <div class="dropdown dropdown-dormitorios dormitorios" id="dormitorios">
                         <div id="select" class="dropdown-title">
-                            <span class="selected">DORMITÓRIOS <iconify-icon icon="iconamoon:arrow-down-2"  style="color: black"></iconify-icon></span>
+                            <span class="selected">DORMITORIOS <iconify-icon icon="iconamoon:arrow-down-2"  style="color: black"></iconify-icon></span>
                         </div>
                         <ul class="menu">
-                            <li class="active">DORMITÓRIOS</li>
-                            <li data-value="1">1</li>
+                            <li class="active">DORMITORIOS</li>
+                            <li data-value="1">1</li> 
                             <li data-value="2">2</li>
                             <li data-value="3">3</li>
                             <li data-value="4">4</li>
@@ -83,7 +83,7 @@
                             <li data-value="6">6</li>
                         </ul>
                     </div>
-                    <div class="dropdown" id="selectTipo">
+                    <div class="dropdown cidade" id="cidade">
                         <div id="select" class="dropdown-title">
                             <span class="selected">CIDADE <iconify-icon icon="iconamoon:arrow-down-2"  style="color: black"></iconify-icon></span>
                         </div>
@@ -104,16 +104,54 @@
                     </div>
                 </div>
                 <div class="filter-bot">
-                    <button class="filter-bot-bttn" id="alugar">
+                    <button class="filter-bot-bttn filter-bttns" id="alugar">
                         ALUGAR
                     </button>
-                    <button class="buscar" id="botaoPesquisa" onclick="sendDropdownValues()">BUSCAR  <iconify-icon icon="mi:search"></iconify-icon></button>
+                    <button class="buscar" type="button" id="botaoPesquisa" onclick="sendDropdown()">BUSCAR  <iconify-icon icon="mi:search"></iconify-icon></button>
                 </div>
-            </form>
+            </div>
         </div>
     </div>
-
 </main>
+
+<footer>
+    <div class="footer-info">
+        <div class="contato">
+            <h2>CONTATO</h2>
+            <p class="content">
+                <!--IFRAME-->Rua Antenor Gonçalves Pereira, 787, sala 02, centro, Bagé/RS <br>
+                <!--IFRAME-->imobiliariahahn@gmail.com <br>
+                <!--IFRAME-->(53) 999728251 - (53) 33121482 <br>
+                <!--IFRAME-->(53) 999728251 - (53) 999620352 
+            </p>
+        </div>
+        <div class="menu2">
+            <h2>MENU</h2>
+            <p>
+                <a>Página Principal</a><br>
+                <a>Contato</a><br>
+            </p>
+        </div>
+        <div class="redes-sociais">
+            <h2>REDES SOCIAIS</h2>
+            <div class="insta-face">
+                <iconify-icon icon="mage:instagram-circle" class="desktop-icon" width="54" height="54" style="color: white"></iconify-icon><iconify-icon icon="mage:instagram-circle" class="cell-icon" width="34" height="34" style="color: white"></iconify-icon>
+                <iconify-icon icon="ph:facebook-logo-bold" class="desktop-icon" width="54" height="54"  style="color: white"></iconify-icon><iconify-icon icon="ph:facebook-logo-bold" class="cell-icon" width="34" height="34" style="color: white"></iconify-icon>
+            </div>
+            <!--IFRAMEx2-->
+        </div>
+
+    </div>
+    <div class="footer-rights">
+        <img src="/assets/logo.png" id="logo" href="index.html">
+        <p>Todos os Direitos Reservados | Copyright © 2023 <br>
+           Proibida a cópia total ou parcial sem autorização prévia <br>
+           CRECI 52931-J</p>
+    </div>
+
+</footer>
+
+<script src="index.js" defer></script>
 
 </body>
 </html>
