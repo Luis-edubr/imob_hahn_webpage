@@ -3,10 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://kit.fontawesome.com/eda7dc1a4f.js" crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <title>Encontre seu Imóvel</title>
 </head>
 <body>
-    CHEGOU
+    <header>
+        <img src="/assets/logo.png" alt="Logo image">
+        <nav>
+            <ul>
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="">CONTATO</a></li>
+                <li><a href="https://www.instagram.com/imobiliariahahn/" target="_blank"><iconify-icon icon="mage:instagram-circle" class="desktop-icon" width="54" height="54" style="color: white"></iconify-icon><iconify-icon icon="mage:instagram-circle" class="cell-icon" width="34" height="34" style="color: white"></iconify-icon></a></li>
+                <li><a href="https://www.facebook.com/imobiliariahahn" target="_blank"><iconify-icon icon="ph:facebook-logo-bold" class="desktop-icon" width="54" height="54"  style="color: white"></iconify-icon><iconify-icon icon="ph:facebook-logo-bold" class="cell-icon" width="34" height="34" style="color: white"></iconify-icon></a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="title">
+        <div class="texto"><h3>23 imóveis encontrados - 1 de 2 páginas</h3></div>
+        <div class="duvida">
+            <h3>Alguma dúvida? Fale conosco!</h3>
+            <button class="contato-bttn">ENTRE EM CONTATO</button>
+        </div>
+    </div>
+
+    <main>
+
+    <div class="busca-avançada">
+        <h3>BUSCA AVANÇADA</h3>
+        <div class="dropdown-results venda" id="selectCidade">
+            <div id="select" class="dropdown-results-title">
+                <span class="selected">Venda<iconify-icon icon="iconamoon:arrow-down-2"  style="color: black"></iconify-icon></span>     
+            </div>
+            <ul class="menu">
+                <li class="active">VENDA</li>
+                <li data-value="Bagé">COMPRA</li>
+                <li data-value="Hulha Negra">ALUGUEL</li>
+            </ul>
+        </div>
+        <div class="dropdown-results tipo" id="selectTipo">
+            <div id="select" class="dropdown-results-title">
+                <span class="selected tipo">Tipo<iconify-icon icon="iconamoon:arrow-down-2"  style="color: black"></iconify-icon></span>
+            </div>
+            <ul class="menu">
+                <li class="active">TIPO</li>
+                <li data-value="Bagé">CASA</li>
+                <li data-value="Hulha Negra">APARTAMENTO</li>
+                <li data-value="Dom Pedrito">TERRENO</li>
+            </ul>
+        </div>
+        <div class="dropdown-results cidade" id="selectCidade">
+            <div id="select" class="dropdown-results-title">
+                <span class="selected">Cidade<iconify-icon icon="iconamoon:arrow-down-2"  style="color: black"></iconify-icon></span>
+            </div>
+            <ul class="menu">
+                <li class="active">CIDADE</li>
+                <li data-value="Bagé">BAGÉ</li>
+                <li data-value="Hulha Negra">HULHA NEGRA</li>
+                <li data-value="Dom Pedrito">DOM PEDRITO</li>
+            </ul>
+        </div>
+        <div class="dropdown-results bairro" id="selectBairro">
+            <div id="select" class="dropdown-results-title">
+                <span class="selected">Bairro<iconify-icon icon="iconamoon:arrow-down-2"  style="color: black"></iconify-icon></span>
+            </div>
+            <ul class="menu">
+                <li class="active">BAIRRO</li>
+                <li data-value="Bagé">GETÚLIO VARGAS</li>
+                <li data-value="Hulha Negra">CENTRO</li>
+                <li data-value="Dom Pedrito">ARVOREZINHA</li>
+            </ul>
+        </div>
+        <h3>VALOR</h3>
+        <div class="botoes-filtro">
+            <button class="valor">MÍNIMO</button>
+            <button class="valor">MÁXIMO</button>
+        </div>
+        <h3>DORMITÓRIOS</h3>
+        <div class="botoes-filtro">
+            <button class="dormitorios" id="1">1</button>
+            <button class="dormitorios" id="2">2</button>
+            <button class="dormitorios" id="3">3</button>
+            <button class="dormitorios" id="4+">4+</button>
+        </div>
+        <h3>BANHEIROS</h3>
+        <div class="botoes-filtro">
+            <button class="banheiros">1</button>
+            <button class="banheiros">2</button>
+            <button class="banheiros">3</button>
+            <button class="banheiros">4+</button>
+        </div>
+        <h3>VAGAS</h3>
+        <div class="botoes-filtro">
+            <button class="vagas">1</button>
+            <button class="vagas">2</button>
+            <button class="vagas">3</button>
+            <button class="vagas">4+</button>
+        </div>
+        <input type="text" placeholder="Código" class="codigoInput" id="codigo">
+        <button class="pesquisar" id="pesquisar">PESQUISAR</button>
+    </div>
+    <div class="container">
+        <div class="minmax-container">
+            <h3>Ordenar por</h3>
+                <div class="min-max" id="selectMinmax">
+                    <div id="select" class="minmax-title">
+                        <span class="selected">Maior preço<iconify-icon icon="iconamoon:arrow-down-2"  style="color: black"></iconify-icon></span>     
+                    </div>
+                    <ul class="menu">
+                        <li class="active" data-value="Maior preço">Maior preço</li>
+                        <li data-value="Menor preço">Menor preço</li>
+                    </ul>
+                </div>
+        </div>
+    </div>
+    <div id="resultado-container" class="resultado-container">   
+        <div class="destaque-ven-al">
+            <div class="top">
+                <img src="imagens/5a16c6dbf2f454f0ff7ba5328052fd13.png" class="img_casa">
+                <h3>INDUSTRIAL I - BAGÉ</h3>
+                <p><img src="imagens/Maps símbolo.png">Rua Doutor Pena</p>
+                <div class="line"></div>
+            </div>
+            <div class="bottom">
+                <p>Cód:2372</p>
+                <div class="icons">
+                    <p><iconify-icon icon="material-symbols:shower" id="desc_ic"></iconify-icon>1</p>
+                    <p><iconify-icon icon="material-symbols:bed" id="desc_ic"></iconify-icon>2</p>
+                    <p><iconify-icon icon="ri:car-fill"></iconify-icon>1</p>
+                </div>
+            </div>
+            <div class="price">
+                <div class="line" height="20px"></div>
+                <p>R$ 500.000,00</p>
+            </div>
+        </div>
+
+        <div class="destaque-ven-al">
+            <div class="top">
+                <img src="imagens/5a16c6dbf2f454f0ff7ba5328052fd13.png" class="img_casa">
+                <h3>INDUSTRIAL I - BAGÉ</h3>
+                <p><img src="imagens/Maps símbolo.png">Rua Doutor Pena</p>
+                <div class="line"></div>
+            </div>
+            <div class="bottom">
+                <p>Cód:2372</p>
+                <div class="icons">
+                    <p><iconify-icon icon="material-symbols:shower" id="desc_ic"></iconify-icon>1</p>
+                    <p><iconify-icon icon="material-symbols:shower" id="desc_ic"></iconify-icon>2</p>
+                    <p><iconify-icon icon="ri:car-fill"></iconify-icon>1</p>
+                </div>
+            </div>
+            <div class="price">
+                <div class="line" height="20px"></div>
+                <p>R$ 500.000,00</p>
+            </div>
+        </div>
+
+        <div class="destaque-ven-al">
+            <div class="top">
+                <img src="imagens/5a16c6dbf2f454f0ff7ba5328052fd13.png" class="img_casa">
+                <h3>INDUSTRIAL I - BAGÉ</h3>
+                <p><img src="imagens/Maps símbolo.png">Rua Doutor Pena</p>
+                <div class="line"></div>
+            </div>
+            <div class="bottom">
+                <p>Cód:2372</p>
+                <div class="icons">
+                    <p><iconify-icon icon="material-symbols:shower" id="desc_ic"></iconify-icon>1</p>
+                    <p><iconify-icon icon="material-symbols:shower" id="desc_ic"></iconify-icon>2</p>
+                    <p><iconify-icon icon="ri:car-fill"></iconify-icon>1</p>
+                </div>
+            </div>
+            <div class="price">
+                <div class="line" height="20px"></div>
+                <p>R$ 500.000,00</p>
+            </div> 
+        </div>
+    </div>
+</div>
+</main>
+
 </body>
 <script src="script.js"></script>
 </html>
