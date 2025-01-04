@@ -20,7 +20,18 @@ const getHouseByParameter = async (req, res) => {
     }
 }
 
+const getHouseById = async (req, res) => {
+    const id = req.params.id;
+    const house = await housesModel.getHouseById(id);
+    if (house){
+        res.status(200).json({ data: house })
+    } else{
+        res.status(404).json({ msg: 'Ocorreu um erro, recarregue a página' });
+    }
+}
+
 module.exports = {
     getAllHouses,
-    getHouseByParameter
+    getHouseByParameter,
+    getHouseById
 }

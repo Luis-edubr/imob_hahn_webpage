@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheet.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/eda7dc1a4f.js" crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <title>Detalhes do Imóvel</title>
+</head>
+<body>
+    <header>
+        <img src="/assets/logo.png" alt="Logo image">
+        <nav>
+            <ul>
+                <li><a href="../resultados/index.html">INÍCIO</a></li>
+                <li><a href="">CONTATO</a></li>
+                <li><a href="https://www.instagram.com/imobiliariahahn/" target="_blank"><iconify-icon icon="mage:instagram-circle" class="desktop-icon" width="54" height="54" style="color: white"></iconify-icon><iconify-icon icon="mage:instagram-circle" class="cell-icon" width="34" height="34" style="color: white"></iconify-icon></a></li>
+                <li><a href="https://www.facebook.com/imobiliariahahn" target="_blank"><iconify-icon icon="ph:facebook-logo-bold" class="desktop-icon" width="54" height="54"  style="color: white"></iconify-icon><iconify-icon icon="ph:facebook-logo-bold" class="cell-icon" width="34" height="34" style="color: white"></iconify-icon></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="detalhes-container">
+            <div class="detalhes-imagem">
+                <img src="../assets/example.png" alt="Imagem do Imóvel" id="imagem-imovel">
+            </div>
+            <div class="detalhes-info">
+                <h1 id="titulo-imovel">Título do Imóvel</h1>
+                <p id="descricao-imovel">Descrição detalhada do imóvel.</p>
+                <p><strong>Endereço:</strong> <span id="endereco-imovel"></span></p>
+                <p><strong>Valor:</strong> R$ <span id="valor-imovel"></span></p>
+                <p><strong>Dormitórios:</strong> <span id="dormitorios-imovel"></span></p>
+                <p><strong>Banheiros:</strong> <span id="banheiros-imovel"></span></p>
+                <p><strong>Garagem:</strong> <span id="garagem-imovel"></span></p>
+                <p><strong>Churrasqueira:</strong> <span id="churrasqueira-imovel"></span></p>
+                <p><strong>Pátio:</strong> <span id="patio-imovel"></span></p>
+                <button class="contato-bttn" id="contato-bttn">ENTRE EM CONTATO</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="detalhes.js"></script>
+</body>
+</html>

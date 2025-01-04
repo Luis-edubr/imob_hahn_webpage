@@ -23,9 +23,23 @@ async function getHouseByParameter(data){ // precisa montar tipo assim: { dormit
     }
 }
 
-getHouseByParameter();
+async function getHouseById(id){
+    try {
+        const house = await prisma.casa.findUnique({
+            where: {
+                idcasa: parseInt(id)
+            }
+        })
+        return house;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+}
+
 
 module.exports = {
     getAllHouses,
-    getHouseByParameter
+    getHouseByParameter,
+    getHouseById
 }
