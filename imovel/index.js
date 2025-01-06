@@ -3,17 +3,14 @@ const detalhes = JSON.parse(data);
 
 const detalhesContainer = document.querySelector('.detalhes-container');
 
-// Crie a estrutura do carrossel
 const swiperContainer = document.createElement('div');
 swiperContainer.classList.add('swiper-container');
 
 const swiperWrapper = document.createElement('div');
 swiperWrapper.classList.add('swiper-wrapper');
 
-// Converta a string JSON em um array
 const imagens = JSON.parse(detalhes.data.imagens);
 
-// Verifique se imagens é um array
 if (Array.isArray(imagens)) {
     imagens.forEach(imagem => {
         const slide = document.createElement('div');
@@ -25,22 +22,20 @@ if (Array.isArray(imagens)) {
     console.error('imagens não é um array:', imagens);
 }
 
-// Adicione os botões de navegação
+
 const swiperButtonNext = document.createElement('div');
 swiperButtonNext.classList.add('swiper-button-next');
 
 const swiperButtonPrev = document.createElement('div');
 swiperButtonPrev.classList.add('swiper-button-prev');
 
-// Monte a estrutura do carrossel
+
 swiperContainer.appendChild(swiperWrapper);
 swiperContainer.appendChild(swiperButtonNext);
 swiperContainer.appendChild(swiperButtonPrev);
-
-// Adicione o carrossel ao container de detalhes
 detalhesContainer.appendChild(swiperContainer);
 
-// Inicialize o Swiper
+// Inicializa o Swiper
 const swiper = new Swiper('.swiper-container', {
     navigation: {
         nextEl: '.swiper-button-next',
@@ -49,13 +44,11 @@ const swiper = new Swiper('.swiper-container', {
     loop: true,
 });
 
-// Adicione o valor do imóvel
 const valorImovel = document.createElement('p');
 valorImovel.classList.add('valor-imovel');
 valorImovel.innerHTML = `R$ ${detalhes.data.valor.toFixed(2).replace('.', ',')}`;
 swiperContainer.appendChild(valorImovel);
 
-// Adicione os detalhes do imóvel
 const detalhesImovel = document.createElement('div');
 detalhesImovel.classList.add('detalhes-info');
 detalhesImovel.innerHTML = `
@@ -72,5 +65,9 @@ detalhesImovel.innerHTML = `
 detalhesContainer.appendChild(detalhesImovel);
 
 document.getElementById('contato-bttn').addEventListener('click', () => {
-    window.location.href = '../contato/index.html'; // Redireciona para a página de contato
+    window.location.href = '../contato/index.html'; 
+});
+
+window.addEventListener('beforeunload', () => {
+    localStorage.removeItem('imovelDetalhes');
 });

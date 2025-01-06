@@ -47,6 +47,7 @@ resultadoContainer.addEventListener('click', (event) => {
 });
 
 function fetchImovelDetails(id) {
+    localStorage.removeItem('resultados');
     fetch(`http://localhost:3000/getHouseById/${id}`)
         .then(response => response.json())
         .then(data => {
@@ -218,3 +219,7 @@ function sortByValor2(objetos) {
     imoveis.sort((a, b) => b.valor - a.valor); 
     loadResults(imoveis); 
 }
+
+window.addEventListener('beforeunload', () => {
+    localStorage.removeItem('resultados');
+});
