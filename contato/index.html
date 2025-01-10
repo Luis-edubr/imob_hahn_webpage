@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atendimento</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../stylesheet.css">
+    <script src="https://kit.fontawesome.com/eda7dc1a4f.js" crossorigin="anonymous"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+</head>
+
+<body>
+
+    <header>
+        <img src="/assets/logo.png" alt="Logo image">
+        <nav>
+            <ul>
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="">CONTATO</a></li>
+                <li><a href="https://www.instagram.com/imobiliariahahn/" target="_blank"><iconify-icon
+                            icon="mage:instagram-circle" class="desktop-icon" width="54" height="54"
+                            style="color: white"></iconify-icon><iconify-icon icon="mage:instagram-circle"
+                            class="cell-icon" width="34" height="34" style="color: white"></iconify-icon></a></li>
+                <li><a href="https://www.facebook.com/imobiliariahahn" target="_blank"><iconify-icon
+                            icon="ph:facebook-logo-bold" class="desktop-icon" width="54" height="54"
+                            style="color: white"></iconify-icon><iconify-icon icon="ph:facebook-logo-bold"
+                            class="cell-icon" width="34" height="34" style="color: white"></iconify-icon></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="info_contato">
+            <div class="left_column">
+                <h3>Informações para contato</h3>
+                <p>
+                    <iconify-icon icon="map:postal-code-prefix" id="desc_ic"></iconify-icon>
+                    Rua Antenor Gonçalves Pereira, 787, sala 02, centro, Bagé/RS<br>
+                    <iconify-icon icon="ic:outline-email"></iconify-icon>
+                    imobiliariahahn@gmail.com<br>
+                    <iconify-icon icon="material-symbols:call" style="color: black"></iconify-icon>
+                    (53) 999728251 - (53) 33121482<br>
+                    <iconify-icon icon="ic:baseline-whatsapp"></iconify-icon>
+                    (53) 999728251 - (53) 999620352<br>
+                    <iconify-icon icon="mdi:instagram" style="color: black"></iconify-icon>
+                    @imobiliariahahn
+                </p>
+            </div>
+            <div class="right_column">
+                <iframe src="https://www.google.com/maps/embed?pb=..." width="100%" height="100%" style="border:0;"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <form class="form-container">
+            <div class="first-two-rows">
+                <div class="form-campos">
+                    <label for="nome">Seu nome</label>
+                    <input type="text" placeholder="Insira seu nome completo" id="nome" required>
+                </div>
+                <div class="form-campos">
+                    <label for="cpf">CPF</label>
+                    <input type="text" placeholder="Ex: 123.456.789-00" id="cpf" required>
+                </div>
+                <div class="form-campos">
+                    <label for="email">E-mail</label>
+                    <input type="email" placeholder="Ex: email@provedor.com" id="email" required>
+                </div>
+                <div class="form-campos">
+                    <label for="cell">Número de celular (com DDD)</label>
+                    <input type="text" placeholder="Ex: (53) 00000-0000" id="cell" required>
+                </div>
+            </div>
+            <div class="assunto">
+                <div class="form-campos">
+                    <label for="assunto">Assunto</label>
+                    <input type="text" required placeholder="O que você precisa?" id="assunto" class="assunto-input">
+                </div>
+            </div>
+            <div class="form-campos mensagem">
+                <label for="mensagem">Mensagem</label>
+                <textarea rows="6" placeholder="Escreva aqui sua mensagem" id="mensagem" class="mensagem-input"></textarea>
+                <button type="submit">Enviar</button>
+            </div>
+            
+        </form>
+    </main>
+
+
+    <!-- <footer>
+    <div class="footer-info">
+        <div class="contato">
+            <h2>CONTATO</h2>
+            <p class="content">
+                Rua Antenor Gonçalves Pereira, 787, sala 02, centro, Bagé/RS <br>
+                imobiliariahahn@gmail.com <br>
+                (53) 999728251 - (53) 33121482 <br>
+                (53) 999728251 - (53) 999620352 
+             </p>
+        </div>
+        <div class="menu2">
+            <h2>MENU</h2>
+            <p>
+                <a>Página Principal</a><br>
+                <a>Contato</a><br>
+            </p>
+        </div>
+        <div class="redes-sociais">
+            <h2>REDES SOCIAIS</h2>
+            <div class="insta-face">
+                <iconify-icon icon="mage:instagram-circle" class="desktop-icon" width="54" height="54" style="color: white"></iconify-icon><iconify-icon icon="mage:instagram-circle" class="cell-icon" width="34" height="34" style="color: white"></iconify-icon>
+                <iconify-icon icon="ph:facebook-logo-bold" class="desktop-icon" width="54" height="54"  style="color: white"></iconify-icon><iconify-icon icon="ph:facebook-logo-bold" class="cell-icon" width="34" height="34" style="color: white"></iconify-icon>
+            </div>
+            IFRAMEx2-->
+    <!-- </div>
+
+    </div>
+    <div class="footer-rights">
+        <img src="/assets/logo.png" id="logo" href="index.html">
+        <p>Todos os Direitos Reservados | Copyright © 2023 <br>
+           Proibida a cópia total ou parcial sem autorização prévia <br>
+           CRECI 52931-J</p>
+    </div>
+
+</footer>  -->
+    <script src="js/atendimento.js"></script>
+
+</body>
+
+</html>

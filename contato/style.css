@@ -1,0 +1,121 @@
+
+  .info_contato {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 2rem 14%;
+}
+
+.left_column {
+    flex: 1;
+    
+}
+
+.right_column {
+    flex: 1;
+ 
+    height: 20em;
+}
+
+form.form-container {
+    
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 2rem 5%;
+}
+
+.form-campos {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    flex: 1;
+}
+
+.first-two-rows {
+    display: flex;
+    align-self: center;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.first-two-rows .form-campos {
+    flex: 1 1 calc(50% - 2rem); /* Cada input ocupa 50% da largura menos a margem */
+}
+
+
+.assunto {
+    align-self: center;
+    display: flex;
+    width: 50%; /* Garante que o container ocupe toda a largura disponível */
+    
+}
+
+.assunto-input {
+    max-width: 100%;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #E1E1E1;
+
+}
+
+.mensagem{
+    align-self: center;
+    display: flex;
+    width: calc(90% - 1rem); /* Garante que o container ocupe toda a largura disponível */
+}
+.mensagem-input {
+    height: 30vh;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #E1E1E1;
+    resize: none;
+}
+
+label{
+    color: #219421;
+}
+
+input {
+    width: 80%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #E1E1E1;
+    resize: none;
+}
+
+button {
+    width: 10%;
+    padding: 0.75rem;
+    font-size: 1rem;
+    color: white;
+    background-color: #219421;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #1a741a;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .info_contato {
+        flex-direction: column;
+    }
+
+    .right_column {
+        height: 15em;
+    }
+}
