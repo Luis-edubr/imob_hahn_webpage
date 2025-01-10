@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
     <title>Encontre seu Imóvel</title>
 </head>
+
 <body>
     <header>
         <img src="/assets/logo.png" alt="Logo image">
@@ -16,13 +18,21 @@
             <ul>
                 <li><a href="index.html">INÍCIO</a></li>
                 <li><a href="">CONTATO</a></li>
-                <li><a href="https://www.instagram.com/imobiliariahahn/" target="_blank"><iconify-icon icon="mage:instagram-circle" class="desktop-icon" width="54" height="54" style="color: white"></iconify-icon><iconify-icon icon="mage:instagram-circle" class="cell-icon" width="34" height="34" style="color: white"></iconify-icon></a></li>
-                <li><a href="https://www.facebook.com/imobiliariahahn" target="_blank"><iconify-icon icon="ph:facebook-logo-bold" class="desktop-icon" width="54" height="54"  style="color: white"></iconify-icon><iconify-icon icon="ph:facebook-logo-bold" class="cell-icon" width="34" height="34" style="color: white"></iconify-icon></a></li>
+                <li><a href="https://www.instagram.com/imobiliariahahn/" target="_blank"><iconify-icon
+                            icon="mage:instagram-circle" class="desktop-icon" width="54" height="54"
+                            style="color: white"></iconify-icon><iconify-icon icon="mage:instagram-circle"
+                            class="cell-icon" width="34" height="34" style="color: white"></iconify-icon></a></li>
+                <li><a href="https://www.facebook.com/imobiliariahahn" target="_blank"><iconify-icon
+                            icon="ph:facebook-logo-bold" class="desktop-icon" width="54" height="54"
+                            style="color: white"></iconify-icon><iconify-icon icon="ph:facebook-logo-bold"
+                            class="cell-icon" width="34" height="34" style="color: white"></iconify-icon></a></li>
             </ul>
         </nav>
     </header>
     <div class="title">
-        <div class="texto"><h3>23 imóveis encontrados - 1 de 2 páginas</h3></div>
+        <div class="texto">
+            <h3>23 imóveis encontrados - 1 de 2 páginas</h3>
+        </div>
         <div class="duvida">
             <h3>Alguma dúvida? Fale conosco!</h3>
             <button class="contato-bttn">ENTRE EM CONTATO</button>
@@ -31,136 +41,146 @@
 
     <main>
 
-    <div class="busca-avançada">
-        <h3>BUSCA AVANÇADA</h3>
-        <div class="dropdown-results venda" id="selectCidade">
-            <div id="select" class="dropdown-results-title">
-                <span class="selected">Venda<iconify-icon icon="iconamoon:arrow-down-2"  style="color: black"></iconify-icon></span>     
+        <div class="busca-avançada">
+            <h3>BUSCA AVANÇADA</h3>
+            <div class="dropdown-results venda" id="selectCidade">
+                <div id="select" class="dropdown-results-title">
+                    <span class="selected">Venda<iconify-icon icon="iconamoon:arrow-down-2"
+                            style="color: black"></iconify-icon></span>
+                </div>
+                <ul class="menu">
+                    <li class="active">VENDA</li>
+                    <li data-value="Bagé">COMPRA</li>
+                    <li data-value="Hulha Negra">ALUGUEL</li>
+                </ul>
             </div>
-            <ul class="menu">
-                <li class="active">VENDA</li>
-                <li data-value="Bagé">COMPRA</li>
-                <li data-value="Hulha Negra">ALUGUEL</li>
-            </ul>
-        </div>
-        <div class="dropdown-results tipo" id="selectTipo">
-            <div id="select" class="dropdown-results-title">
-                <span class="selected tipo">Tipo<iconify-icon icon="iconamoon:arrow-down-2"  style="color: black"></iconify-icon></span>
+            <div class="dropdown-results tipo" id="selectTipo">
+                <div id="select" class="dropdown-results-title">
+                    <span class="selected tipo">Tipo<iconify-icon icon="iconamoon:arrow-down-2"
+                            style="color: black"></iconify-icon></span>
+                </div>
+                <ul class="menu">
+                    <li class="active">TIPO</li>
+                    <li data-value="Bagé">CASA</li>
+                    <li data-value="Hulha Negra">APARTAMENTO</li>
+                    <li data-value="Dom Pedrito">TERRENO</li>
+                </ul>
             </div>
-            <ul class="menu">
-                <li class="active">TIPO</li>
-                <li data-value="Bagé">CASA</li>
-                <li data-value="Hulha Negra">APARTAMENTO</li>
-                <li data-value="Dom Pedrito">TERRENO</li>
-            </ul>
-        </div>
-        <div class="dropdown-results cidade" id="selectCidade">
-            <div id="select" class="dropdown-results-title">
-                <span class="selected">Cidade<iconify-icon icon="iconamoon:arrow-down-2"  style="color: black"></iconify-icon></span>
+            <div class="dropdown-results cidade" id="selectCidade">
+                <div id="select" class="dropdown-results-title">
+                    <span class="selected">Cidade<iconify-icon icon="iconamoon:arrow-down-2"
+                            style="color: black"></iconify-icon></span>
+                </div>
+                <ul class="menu">
+                    <li class="active">CIDADE</li>
+                    <li data-value="Bagé">BAGÉ</li>
+                    <li data-value="Hulha Negra">HULHA NEGRA</li>
+                    <li data-value="Dom Pedrito">DOM PEDRITO</li>
+                </ul>
             </div>
-            <ul class="menu">
-                <li class="active">CIDADE</li>
-                <li data-value="Bagé">BAGÉ</li>
-                <li data-value="Hulha Negra">HULHA NEGRA</li>
-                <li data-value="Dom Pedrito">DOM PEDRITO</li>
-            </ul>
-        </div>
-        <div class="dropdown-results bairro" id="selectBairro">
-            <div id="select" class="dropdown-results-title">
-                <span class="selected">Bairro<iconify-icon icon="iconamoon:arrow-down-2"  style="color: black"></iconify-icon></span>
+            <div class="dropdown-results bairro" id="selectBairro">
+                <div id="select" class="dropdown-results-title">
+                    <span class="selected">Bairro<iconify-icon icon="iconamoon:arrow-down-2"
+                            style="color: black"></iconify-icon></span>
+                </div>
+                <ul class="menu">
+                    <li class="active">BAIRRO</li>
+                    <li data-value="Bagé">GETÚLIO VARGAS</li>
+                    <li data-value="Hulha Negra">CENTRO</li>
+                    <li data-value="Dom Pedrito">ARVOREZINHA</li>
+                </ul>
             </div>
-            <ul class="menu">
-                <li class="active">BAIRRO</li>
-                <li data-value="Bagé">GETÚLIO VARGAS</li>
-                <li data-value="Hulha Negra">CENTRO</li>
-                <li data-value="Dom Pedrito">ARVOREZINHA</li>
-            </ul>
+            <h3>VALOR</h3>
+            <div class="botoes-filtro">
+                <button class="valor">MÍNIMO</button>
+                <button class="valor">MÁXIMO</button>
+            </div>
+            <h3>DORMITÓRIOS</h3>
+            <div class="botoes-filtro">
+                <button class="dormitorios" id="1">1</button>
+                <button class="dormitorios" id="2">2</button>
+                <button class="dormitorios" id="3">3</button>
+                <button class="dormitorios" id="4+">4+</button>
+            </div>
+            <h3>BANHEIROS</h3>
+            <div class="botoes-filtro">
+                <button class="banheiros">1</button>
+                <button class="banheiros">2</button>
+                <button class="banheiros">3</button>
+                <button class="banheiros">4+</button>
+            </div>
+            <h3>VAGAS</h3>
+            <div class="botoes-filtro">
+                <button class="vagas">1</button>
+                <button class="vagas">2</button>
+                <button class="vagas">3</button>
+                <button class="vagas">4+</button>
+            </div>
+            <input type="text" placeholder="Código" class="codigoInput" id="codigo">
+            <button class="pesquisar" id="pesquisar">PESQUISAR</button>
         </div>
-        <h3>VALOR</h3>
-        <div class="botoes-filtro">
-            <button class="valor">MÍNIMO</button>
-            <button class="valor">MÁXIMO</button>
-        </div>
-        <h3>DORMITÓRIOS</h3>
-        <div class="botoes-filtro">
-            <button class="dormitorios" id="1">1</button>
-            <button class="dormitorios" id="2">2</button>
-            <button class="dormitorios" id="3">3</button>
-            <button class="dormitorios" id="4+">4+</button>
-        </div>
-        <h3>BANHEIROS</h3>
-        <div class="botoes-filtro">
-            <button class="banheiros">1</button>
-            <button class="banheiros">2</button>
-            <button class="banheiros">3</button>
-            <button class="banheiros">4+</button>
-        </div>
-        <h3>VAGAS</h3>
-        <div class="botoes-filtro">
-            <button class="vagas">1</button>
-            <button class="vagas">2</button>
-            <button class="vagas">3</button>
-            <button class="vagas">4+</button>
-        </div>
-        <input type="text" placeholder="Código" class="codigoInput" id="codigo">
-        <button class="pesquisar" id="pesquisar">PESQUISAR</button>
-    </div>
-    <div class="container">
-        <div class="minmax-container">
-            <h3>Ordenar por</h3>
+        <div class="container">
+            <div class="minmax-container">
+                <h3>Ordenar por</h3>
                 <div class="min-max" id="selectMinmax">
                     <div id="select" class="minmax-title">
-                        <span class="selected">Maior preço<iconify-icon icon="iconamoon:arrow-down-2"  style="color: black"></iconify-icon></span>     
+                        <span class="selected">Maior preço<iconify-icon icon="iconamoon:arrow-down-2"
+                                style="color: black"></iconify-icon></span>
                     </div>
                     <ul class="menu">
                         <li class="active" data-value="Maior preço">Maior preço</li>
                         <li data-value="Menor preço">Menor preço</li>
                     </ul>
                 </div>
-        </div>
-        <div id="resultado-container" class="resultado-container">   
-        
-        
-        </div>
-    </div>
-</div>
-</main>
-<!--<footer>
-    <div class="footer-info">
-        <div class="contato">
-            <h2>CONTATO</h2>
-            <p class="content">
-                Rua Antenor Gonçalves Pereira, 787, sala 02, centro, Bagé/RS <br>
-                imobiliariahahn@gmail.com <br>
-               (53) 999728251 - (53) 33121482 <br>
-               (53) 999728251 - (53) 999620352 
-            </p>
-        </div>
-        <div class="menu2">
-            <h2>MENU</h2>
-            <p>
-                <a>Página Principal</a><br>
-                <a>Contato</a><br>
-            </p>
-        </div>
-        <div class="redes-sociais">
-            <h2>REDES SOCIAIS</h2>
-            <div class="insta-face">
-                <iconify-icon icon="mage:instagram-circle" class="desktop-icon" width="54" height="54" style="color: white"></iconify-icon><iconify-icon icon="mage:instagram-circle" class="cell-icon" width="34" height="34" style="color: white"></iconify-icon>
-                <iconify-icon icon="ph:facebook-logo-bold" class="desktop-icon" width="54" height="54"  style="color: white"></iconify-icon><iconify-icon icon="ph:facebook-logo-bold" class="cell-icon" width="34" height="34" style="color: white"></iconify-icon>
             </div>
-            
+            <div id="resultado-container" class="resultado-container">
+
+
+            </div>
+        </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-info">
+            <div class="contato">
+                <h2>CONTATO</h2>
+                <p class="content">
+                    Rua Antenor Gonçalves Pereira, 787, sala 02, centro, Bagé/RS <br>
+                    imobiliariahahn@gmail.com <br>
+                    (53) 999728251 - (53) 33121482 <br>
+                    (53) 999728251 - (53) 999620352
+                </p>
+            </div>
+            <div class="menu2">
+                <h2>MENU</h2>
+                <p>
+                    <a>Página Principal</a><br>
+                    <a>Contato</a><br>
+                </p>
+            </div>
+            <div class="redes-sociais">
+                <h2>REDES SOCIAIS</h2>
+                <div class="insta-face">
+                    <iconify-icon icon="mage:instagram-circle" class="desktop-icon" width="54" height="54"
+                        style="color: white"></iconify-icon><iconify-icon icon="mage:instagram-circle" class="cell-icon"
+                        width="34" height="34" style="color: white"></iconify-icon>
+                    <iconify-icon icon="ph:facebook-logo-bold" class="desktop-icon" width="54" height="54"
+                        style="color: white"></iconify-icon><iconify-icon icon="ph:facebook-logo-bold" class="cell-icon"
+                        width="34" height="34" style="color: white"></iconify-icon>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="footer-rights">
+            <img src="/assets/logo.png" id="logo" href="index.html">
+            <p>Todos os Direitos Reservados | Copyright © 2023 <br>
+                Proibida a cópia total ou parcial sem autorização prévia <br>
+                CRECI 52931-J</p>
         </div>
 
-    </div>
-    <div class="footer-rights">
-        <img src="/assets/logo.png" id="logo" href="index.html">
-        <p>Todos os Direitos Reservados | Copyright © 2023 <br>
-           Proibida a cópia total ou parcial sem autorização prévia <br>
-           CRECI 52931-J</p>
-    </div>
-
-</footer>-->
+    </footer>
 </body>
 <script src="script.js"></script>
+
 </html>

@@ -1,5 +1,30 @@
+/* Torna o documento um container flex vertical, mantendo o footer no fim */
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-  .info_contato {
+/* Header não encolhe */
+header {
+    flex: 0 0 auto;
+}
+
+/* Main ocupa o espaço livre */
+main {
+    flex: 1 0 auto;
+}
+
+/* Footer fica no final */
+footer {
+    flex: 0 0 auto;
+}
+
+/* Restante dos estilos existentes */
+.info_contato {
     display: flex;
     flex-wrap: nowrap;
     flex-direction: row;
@@ -11,17 +36,14 @@
 
 .left_column {
     flex: 1;
-    
 }
 
 .right_column {
     flex: 1;
- 
-    height: 20em;
+    height: 15em;
 }
 
 form.form-container {
-    
     display: flex;
     flex-direction: column;
     gap: 1rem;
@@ -45,15 +67,13 @@ form.form-container {
 }
 
 .first-two-rows .form-campos {
-    flex: 1 1 calc(50% - 2rem); /* Cada input ocupa 50% da largura menos a margem */
+    flex: 1 1 calc(50% - 2rem);
 }
-
 
 .assunto {
     align-self: center;
     display: flex;
-    width: 50%; /* Garante que o container ocupe toda a largura disponível */
-    
+    width: 50%;
 }
 
 .assunto-input {
@@ -62,14 +82,14 @@ form.form-container {
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #E1E1E1;
-
 }
 
-.mensagem{
+.mensagem {
     align-self: center;
     display: flex;
-    width: calc(90% - 1rem); /* Garante que o container ocupe toda a largura disponível */
+    width: calc(90% - 1rem);
 }
+
 .mensagem-input {
     height: 30vh;
     font-size: 1rem;
@@ -79,7 +99,7 @@ form.form-container {
     resize: none;
 }
 
-label{
+label {
     color: #219421;
 }
 
@@ -109,12 +129,10 @@ button:hover {
     background-color: #1a741a;
 }
 
-/* Responsividade */
 @media (max-width: 768px) {
     .info_contato {
         flex-direction: column;
     }
-
     .right_column {
         height: 15em;
     }
