@@ -67,7 +67,7 @@
         const codigoInput = document.querySelector('#codigoInput');
         const codigoValue = codigoInput ? codigoInput.value.trim() : '';
         if (codigoValue !== "") {
-            dropdownValues["id"] = codigoValue;
+            dropdownValues["idcasa"] = codigoValue;
         }
   
         function capitalizeWords(str) {
@@ -77,8 +77,8 @@
                 .map(word => word.charAt(0).toUpperCase() + word.slice(1))
                 .join(" ");
         }
-    
-
+        
+        
         fetch('http://localhost:3000/getHouseByParameter', {
             method: 'POST',
             headers: {

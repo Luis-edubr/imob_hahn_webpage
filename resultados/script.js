@@ -86,7 +86,7 @@ function filtros(botao) {
             }
 
             const buttonName = button.id;
-            console.log("Botão selecionado:", buttonName);
+            
         });
     });
 }
@@ -159,37 +159,49 @@ function sendSearch() {
     dropdowns.forEach(dropdown => {
         const dropdownId = dropdown.id;
         const selectedOption = dropdown.querySelector('.selected');
-
-        // Verifica se o elemento com a classe .selected existe dentro do dropdown
+        
         if (selectedOption) {
             const selectedValue = selectedOption.innerText.trim();
-
-            // Verifica se o valor selecionado não é uma string vazia antes de adicionar ao objeto
+    
             if (selectedValue !== "" && selectedValue !== null) {
-                // Adiciona o valor do dropdown ao objeto dropdownValues
-                dropdownValues[dropdownId] = selectedValue;
+                // Verifica se o valor selecionado não é um valor padrão
+                if (!["Cidade", "CIDADE", "Tipo", "TIPO", "Bairro", "BAIRRO", "Modalidade", "MODALIDADE"].includes(selectedValue)) {
+                    if (dropdownId === 'dormitorios' || dropdownId === 'banheiros') {
+                        dropdownValues[dropdownId] = parseInt(selectedValue, 10); // Converte para inteiro
+                    } else {
+                        dropdownValues[dropdownId] = capitalizeWords(selectedValue); // Converte para formato capitalizado
+                    }
+                }
             }
         }
     });
     const codigoInput = document.querySelector('#codigoInput');
-    const codigoValue = codigoInput.value.trim();
-    if (codigoValue !== "") {
-        dropdownValues["codigoInput"] = codigoValue;
+    if (codigoInput) {
+        const codigoValue = codigoInput.value.trim();
+        if (codigoValue !== "" && codigoValue !== null) {
+            dropdownValues["idcasa"] = codigoValue;
+        }
     }
 
     const buttons = document.querySelectorAll('.botoes-filtro button');
     buttons.forEach(button => {
         const buttonId = button.id;
-        const selectedBtn = button.className.slice(0, -7);
+        const buttonClass = button.className.split(' ')[0];
         const isActive = button.classList.contains('active');
 
         // Verifica se o botão está ativo
         if (isActive) {
-            // Adiciona o botão ativo ao objeto dropdownValues
-            dropdownValues[selectedBtn] = buttonId;
+            if (buttonClass === 'dormitorios' || buttonClass === 'banheiros') {
+                dropdownValues[buttonClass] = parseInt(buttonId, 10); // Converte para inteiro
+            } else {
+                dropdownValues[buttonClass] = buttonId;
+            }
         }
     });
-    fetch('http://localhost:3000/search', {
+
+    console.log(dropdownValues);
+    
+    fetch('http://localhost:3000/getHouseByParameter', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -198,7 +210,8 @@ function sendSearch() {
     })
         .then(response => response.json())
         .then(data => {
-            loadResults(data);
+            
+            loadResults(data.data);
         })
         .catch(error => {
             console.error('Erro na requisição:', error.message);
@@ -219,6 +232,15 @@ function sortByValor2(objetos) {
     imoveis.sort((a, b) => b.valor - a.valor); 
     loadResults(imoveis); 
 }
+
+function capitalizeWords(str) {
+    return str
+        .toLowerCase()
+        .split(" ")
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(" ");
+}
+
 
 window.addEventListener('beforeunload', () => {
     localStorage.removeItem('resultados');
