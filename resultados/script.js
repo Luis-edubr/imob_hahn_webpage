@@ -1,7 +1,9 @@
 const resultados = localStorage.getItem('resultados');
 const resultadosObj = JSON.parse(resultados);
-
 const resultadoContainer = document.getElementById('resultado-container');
+let totalPages = 0;
+let currentPage = 1;
+const limit = 10;
 let imoveis;
 
 function loadResults(results) {
@@ -37,7 +39,59 @@ function loadResults(results) {
     });
 }
 
-// Adiciona evento de clique ao container
+function updatePagination(pages) {
+    totalPages = pages;
+    document.getElementById('pageInfo').innerText = `Página ${currentPage} de ${totalPages}`;
+    document.getElementById('totalResults').innerText = `${totalPages * limit} imóveis encontrados ${currentPage} de ${totalPages} páginas`;
+    const prevPageBtn = document.getElementById('prevPage');
+    const nextPageBtn = document.getElementById('nextPage');
+
+    if (totalPages === 0) {
+        // Se não há páginas, desabilita ambos
+        prevPageBtn.disabled = true;
+        nextPageBtn.disabled = true;
+    } else {
+        // Caso contrário, habilita/desabilita normalmente
+        prevPageBtn.disabled = currentPage === 1;
+        nextPageBtn.disabled = currentPage === totalPages;
+    }
+}
+
+function fetchResults(page = 1) {
+    const filters = getFilters();
+    fetch('http://localhost:3000/getHouseByParameter', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ ...filters, page, limit })
+    })
+        .then(response => response.json())
+        .then(data => {
+            loadResults(data.data);
+            updatePagination(data.totalPages);
+        })
+        .catch(error => {
+            console.error('Erro na requisição:', error.message);
+        });
+}
+
+document.getElementById('prevPage').addEventListener('click', () => {
+    if (totalPages > 0 && currentPage > 1) {
+        currentPage--;
+        fetchResults(currentPage);
+    }
+});
+
+document.getElementById('nextPage').addEventListener('click', () => {
+    if (totalPages > 0 && currentPage < totalPages) {
+        currentPage++;
+        fetchResults(currentPage);
+    }
+});
+
+
+
 resultadoContainer.addEventListener('click', (event) => {
     const destaque = event.target.closest('.destaque-ven-al');
     if (destaque) {
@@ -51,9 +105,7 @@ function fetchImovelDetails(id) {
     fetch(`http://localhost:3000/getHouseById/${id}`)
         .then(response => response.json())
         .then(data => {
-            // Armazena os detalhes do imóvel no localStorage
             localStorage.setItem('imovelDetalhes', JSON.stringify(data));
-            // Redireciona para a página de detalhes
             window.location.href = '../imovel/index.html';
         })
         .catch(error => {
@@ -69,24 +121,20 @@ const banheiros = document.querySelectorAll('.banheiros');
 const vagas = document.querySelectorAll('.vagas');
 
 function filtros(botao) {
-    const grupo = botao[0].parentNode; // Obtém o grupo de botões
+    const grupo = botao[0].parentNode;
 
     botao.forEach(button => {
         button.addEventListener('click', () => {
             const isActive = button.classList.contains('active');
-
-            // Remove a classe 'active' de todos os botões do grupo
             grupo.querySelectorAll('button').forEach(btn => {
                 btn.classList.remove('active');
             });
-
-            // Adiciona a classe 'active' apenas ao botão clicado
             if (!isActive) {
                 button.classList.add('active');
             }
 
             const buttonName = button.id;
-            
+
         });
     });
 }
@@ -109,7 +157,6 @@ dropdowns.forEach(dropdown => {
 
     options.forEach(option => {
         option.addEventListener('click', () => {
-            const selectedValue = option.dataset.value; // Acessa o atributo data-value
             selected.innerText = option.innerText;
             select.classList.remove('select-clicked');
             menu.classList.remove('menu-open');
@@ -151,7 +198,7 @@ optionsMinMax.forEach(option => {
     });
 });
 
-function sendSearch() {
+function getFilters() {
     // Objeto para armazenar os valores dos dropdowns
     let dropdownValues = {};
 
@@ -159,10 +206,10 @@ function sendSearch() {
     dropdowns.forEach(dropdown => {
         const dropdownId = dropdown.id;
         const selectedOption = dropdown.querySelector('.selected');
-        
+
         if (selectedOption) {
             const selectedValue = selectedOption.innerText.trim();
-    
+
             if (selectedValue !== "" && selectedValue !== null) {
                 // Verifica se o valor selecionado não é um valor padrão
                 if (!["Cidade", "CIDADE", "Tipo", "TIPO", "Bairro", "BAIRRO", "Modalidade", "MODALIDADE"].includes(selectedValue)) {
@@ -179,7 +226,7 @@ function sendSearch() {
     if (codigoInput) {
         const codigoValue = codigoInput.value.trim();
         if (codigoValue !== "" && codigoValue !== null) {
-            dropdownValues["idcasa"] = codigoValue;
+            dropdownValues["idcasa"] = parseInt(codigoValue, 10);
         }
     }
 
@@ -191,46 +238,31 @@ function sendSearch() {
 
         // Verifica se o botão está ativo
         if (isActive) {
-            if (buttonClass === 'dormitorios' || buttonClass === 'banheiros') {
-                dropdownValues[buttonClass] = parseInt(buttonId, 10); // Converte para inteiro
+            if (buttonClass === 'dormitorios' || buttonClass === 'banheiros' || buttonClass == "vagas") {
+                dropdownValues[buttonClass] = parseInt(buttonId, 10);
             } else {
                 dropdownValues[buttonClass] = buttonId;
             }
         }
     });
-
-    console.log(dropdownValues);
-    
-    fetch('http://localhost:3000/getHouseByParameter', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(dropdownValues)
-    })
-        .then(response => response.json())
-        .then(data => {
-            
-            loadResults(data.data);
-        })
-        .catch(error => {
-            console.error('Erro na requisição:', error.message);
-        });
+    return dropdownValues;
 }
 
 const botaoPesquisa = document.querySelector('#pesquisar');
-botaoPesquisa.addEventListener('click', sendSearch);
+botaoPesquisa.addEventListener('click', () => {
+    fetchResults(1); // ou qualquer página que você queira
+});
 
 function sortByValor(objetos) {
     imoveis = objetos;
-    imoveis.sort((a, b) => a.valor - b.valor); 
-    loadResults(imoveis); 
+    imoveis.sort((a, b) => a.valor - b.valor);
+    loadResults(imoveis);
 }
 
 function sortByValor2(objetos) {
     imoveis = objetos;
-    imoveis.sort((a, b) => b.valor - a.valor); 
-    loadResults(imoveis); 
+    imoveis.sort((a, b) => b.valor - a.valor);
+    loadResults(imoveis);
 }
 
 function capitalizeWords(str) {

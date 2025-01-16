@@ -17,8 +17,6 @@ main {
   gap: 1%;
   width: 90%;
   justify-content: center;
-  /* Remova ou sobrescreva a height fixa de 80%:
-     Se quiser permitir que o conteúdo cresça, use auto. */
   height: auto;
   margin: 0 auto;
   padding: 0;
@@ -97,6 +95,11 @@ main {
   z-index: 47;
 }
 
+.dropdown-results {
+    position: relative;
+    align-items: center;
+}
+
 .dropdown-results-title span {
   color: rgb(139, 139, 139);
   font-size: 14px;
@@ -108,7 +111,6 @@ main {
   width: 14vw;
   justify-content: center;
   align-items: center;
-  z-index: 1;
 }
 
 .menu {
@@ -124,6 +126,7 @@ main {
   transition: 0.2s;
   z-index: 1;
   display: none;
+  z-index: 5000;
 }
 
 .menu li {
@@ -353,4 +356,23 @@ main {
   text-align: center;
   color: white;
   background-color: #26AA26;
+}
+
+#pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+
+}
+
+#pagination button {
+  padding: 10px 20px;
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+#pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
