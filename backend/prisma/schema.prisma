@@ -23,3 +23,9 @@ model casa {
 } // adicionar nessa tabela o campo rua, numero, complemento, cep, area, area_construida, descricao, imagem
 
 // lembrar de criar tabelas cidades e bairros e fazer relacionamento com a tabela casa e também entre elas
+
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+}

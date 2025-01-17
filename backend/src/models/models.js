@@ -1,6 +1,6 @@
-const prisma = require('../prisma-client');
+import prisma from '../prisma-client.js';
 
-async function getAllHouses() {
+export async function getAllHouses() {
     try {
         const houses = await prisma.casa.findMany()
         return houses;
@@ -10,7 +10,7 @@ async function getAllHouses() {
     }
 }
 
-async function getHouseByParameter(data, page = 1, limit = 10) {
+export async function getHouseByParameter(data, page = 1, limit = 10) {
     try {
         const skip = parseInt((page - 1) * limit, 10);
         const houses = await prisma.casa.findMany({
@@ -30,7 +30,7 @@ async function getHouseByParameter(data, page = 1, limit = 10) {
     }
 }
 
-async function getHouseById(id) {
+export async function getHouseById(id) {
     try {
         const house = await prisma.casa.findUnique({
             where: {
@@ -44,9 +44,3 @@ async function getHouseById(id) {
     }
 }
 
-
-module.exports = {
-    getAllHouses,
-    getHouseByParameter,
-    getHouseById
-}

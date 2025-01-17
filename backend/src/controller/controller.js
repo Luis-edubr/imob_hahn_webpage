@@ -1,6 +1,6 @@
-const housesModel = require('../models/models');
+import * as housesModel from '../models/models.js';
 
-const getAllHouses = async (req, res) => {
+export const getAllHouses = async (req, res) => {
     const houses = await housesModel.getAllHouses()
     
     if (houses) {
@@ -10,7 +10,7 @@ const getAllHouses = async (req, res) => {
     }
 }
 
-const getHouseByParameter = async (req, res) => {
+export const getHouseByParameter = async (req, res) => {
     const { page = 1, limit = 10, ...filters } = req.body;
     try {
         const { houses, totalResults } = await housesModel.getHouseByParameter(filters, page, limit);
@@ -25,7 +25,7 @@ const getHouseByParameter = async (req, res) => {
     }
 }
 
-const getHouseById = async (req, res) => {
+export const getHouseById = async (req, res) => {
     const id = req.params.id;
     const house = await housesModel.getHouseById(id);
     if (house){
@@ -35,8 +35,3 @@ const getHouseById = async (req, res) => {
     }
 }
 
-module.exports = {
-    getAllHouses,
-    getHouseByParameter,
-    getHouseById
-}

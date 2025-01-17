@@ -1,12 +1,14 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const dotenv = require('dotenv');
+import dotenv from 'dotenv';
 dotenv.config();
 
-const houseController = require('./controller/controller')
+import { getAllHouses, getHouseById, getHouseByParameter } from './controller/controller.js';
+import { login } from './controller/authController.js';
 
-router.get('/allHouses', houseController.getAllHouses);
-router.get('/getHouseById/:id', houseController.getHouseById);
-router.post('/getHouseByParameter', houseController.getHouseByParameter);
+router.get('/allHouses', getAllHouses);
+router.get('/getHouseById/:id', getHouseById);
+router.post('/getHouseByParameter', getHouseByParameter);
+router.post('/login', login);
 
-module.exports = router; 
+export default router;
