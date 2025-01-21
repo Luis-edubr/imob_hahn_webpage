@@ -1,31 +1,30 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
-}
-
 model casa {
   idcasa        Int      @id @default(autoincrement())
-  isoffer       Boolean? @default(false)
+  isoffer       Boolean? @default(false) @db.TinyInt
   valor         Float?
   dormitorios   Int?
   banheiros     Int?
   suites        Int?
   garagem       Int?
   churrasqueira Int?
-  patio         Boolean?
-  cidade        String?
-  bairro        String?
-  imagens       String?  // Nova coluna para armazenar URLs de imagens como JSON
-} // adicionar nessa tabela o campo rua, numero, complemento, cep, area, area_construida, descricao, imagem
-
-// lembrar de criar tabelas cidades e bairros e fazer relacionamento com a tabela casa e também entre elas
+  patio         Boolean? @default(false) @db.TinyInt
+  cidade        String?  @db.VarChar(191)
+  bairro        String?  @db.VarChar(191)
+  imagens       String?  @db.VarChar(191)
+  ativo         Boolean? @default(true) @db.TinyInt
+}
 
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  password  String
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  password String
 }

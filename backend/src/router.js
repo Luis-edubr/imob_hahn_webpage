@@ -4,13 +4,21 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import { getAllHouses, getHouseById, getHouseByParameter } from './controller/controller.js';
+import { createNewRegister, getAllRegisters, getRegisterById, updateRegister, deleteRegister } from './controller/adminController.js';
 import { login, validateToken } from './controller/authController.js';
+import {  validateDeleteRegister, validaeUpdateRegister, validateGetAllRegisters, validateGetRegisterById, validateNewRegister } from './middlewares/adminMiddlewares.js';
 
 router.get('/allHouses', getAllHouses);
 router.get('/getHouseById/:id', getHouseById);
 router.get('/validateToken', validateToken)
 router.post('/getHouseByParameter', getHouseByParameter);
 router.post('/login', login);
+
+router.get('/admin/getRegisterById/:id/:table', validateGetRegisterById, getRegisterById);
+router.post('/admin/createNewRegister', validateNewRegister, createNewRegister);
+router.put('/admin/updateRegister/:id/:table', validaeUpdateRegister, updateRegister);
+router.get('/admin/getAllRegisters/:table', validateGetAllRegisters, getAllRegisters);
+router.put('/admin/deleteRegister/:id/:table', validateDeleteRegister, deleteRegister);
 
 
 export default router;

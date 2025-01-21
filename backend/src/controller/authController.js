@@ -21,7 +21,7 @@ export async function login(req, res) {
 
     return res.status(200).json({ user: { email: user.email }, token: token });
   } catch (error) {
-    res.status(500).json({ error: 'Erro interno do servidor' });
+    return res.status(500).json({ error: 'Erro interno do servidor' });
   }
 };
 
@@ -41,7 +41,7 @@ export async function validateToken(req, res) {
       return res.status(404).json({ message: 'Usuário não encontrado' });
     }
 
-    res.status(200).json({ user: { id: user.id, email: user.email } });
+    return res.status(200).json({ user: { id: user.id, email: user.email } });
   } catch (err) {
     console.error('Erro na validação do token:', err);
     return res.status(401).json({ message: 'Token inválido' });
