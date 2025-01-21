@@ -6,9 +6,10 @@ const app = express();
 import cors from "cors";
 import cookieParser from "cookie-parser";
 
-app.use(cookieParser());
 app.use(cors());
+
 app.use(express.json());
+app.use(cookieParser());
 app.use(router);
 
 export default app;
