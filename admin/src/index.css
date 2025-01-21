@@ -1,0 +1,46 @@
+body {
+  margin: 0;
+  font-family: 'Figtree', sans-serif;
+  background: linear-gradient(to right, rgba(85, 107, 47, 1), rgba(255, 215, 0, 1));
+}
+
+.background-white {
+  background: white;
+}
+
+.background-dark {
+  background: #2d3748;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.card {
+  width: 100%;
+  max-width: 24rem;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background-color: white;
+  color: black;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+.dark .card {
+  background-color: #2d3748;
+  color: white;
+}
+
+.logo {
+  width: 5rem;
+  height: 5rem;
+  fill: currentColor;
+  color: #6b7280;
+}

@@ -1,0 +1,25 @@
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.admin {
+    margin-left: 1.5vw;
+}
+
+.sidebar {
+    width: 10.5vw;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.toast-top-full-width {
+    top: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.toast-top-full-width .toast {
+    margin: 0 auto;
+}
