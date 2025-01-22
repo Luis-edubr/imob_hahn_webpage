@@ -100,3 +100,19 @@ export const validateDeleteRegister = [
         next();
     }
 ]
+
+export const validateKeyword = [
+    body('keyword').not().isEmpty().custom((value) => {
+        if (typeof value === 'string' || Number.isInteger(value > 0)) {
+            return true;
+        }
+        return false;
+    }).withMessage('A palavra-chave precisa ser um inteiro positivo ou uma string'),
+    (req, res, next) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()){
+            return res.status(400).json({ errors: errors.array() });
+        }
+        next();
+    }
+];
