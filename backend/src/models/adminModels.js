@@ -3,6 +3,17 @@ import { casaSearchQuery, terrenoSearchQuery } from "../utils/adminQueries.js";
 
 // precisa melhorar mto a arquitetura dessa bagaça
 
+export async function getAllRegisters() {
+    try {
+        const casas = await prisma.casa.findMany({ where: { ativo: true } });
+        // const terrenos = await prisma.terreno.findMany({ where: { ativo: true } });
+        return { casas };
+    } catch (error) {
+        throw error;
+    }
+}
+
+
 export async function createNewRegister(params, table) {
     try {
         const newRegister = await prisma[table].create({ data: params });
@@ -23,14 +34,14 @@ export async function getAllRegistersFromSpecificTable(table) {
 
 export async function getRegisterById(id, table) {
     try {
-        const register = prisma[table].findUnique({ where: { idcasa: Number(id), ativo: true }})
+        const register = prisma[table].findUnique({ where: { idcasa: Number(id), ativo: true } })
         return register
     } catch (error) {
         throw error;
     }
 }
 
-export async function updateRegister(table, id, params){
+export async function updateRegister(table, id, params) {
     try {
         const updatedRegister = await prisma[table].update({ where: { idcasa: Number(id), ativo: true }, data: params });
         return updatedRegister;
@@ -39,7 +50,7 @@ export async function updateRegister(table, id, params){
     }
 }
 
-export async function deleteRegister(id, table){
+export async function deleteRegister(id, table) {
     try {
         await prisma[table].update({ where: { idcasa: Number(id) }, data: { ativo: false } });
         return true;

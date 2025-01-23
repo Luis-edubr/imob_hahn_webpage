@@ -1,5 +1,16 @@
 import * as adminModels from '../models/adminModels.js';
 
+
+export async function getAllRegisters(req, res) {
+    try {
+        const registers = await adminModels.getAllRegisters();
+        console.log(registers);
+        res.status(200).json({ data: registers });
+    } catch (error) {
+        res.status(500).json({ error: 'Erro interno do servidor' });
+    }
+}
+
 export async function createNewRegister(req, res) {
     const { params, table } = req.body;
     const allowedTables = ['casa']; // colocar as outras dps e talvez mover p middleware
