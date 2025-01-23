@@ -8,8 +8,8 @@ body {
   background: white;
 }
 
-.background-dark {
-  background: #2d3748;
+.background-dashboard {
+  background: linear-gradient(89deg, #408C40 0%, #26AA26 100%);
 }
 
 .container {
