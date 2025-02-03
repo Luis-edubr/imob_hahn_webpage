@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { api } from '../services/api';
 import { Button, Table, Form, InputGroup, Spinner } from 'react-bootstrap';
 import { deleteRegister } from '../utils/crudApiCalls.js';
-
+import { useNavigate } from 'react-router-dom';
 const RegistersList = () => {
   const [casas, setCasas] = useState([]);
   const [filteredCasas, setFilteredCasas] = useState([]);
@@ -83,6 +83,12 @@ const RegistersList = () => {
     // setFilteredTerrenos(terrenos.filter((imovel) => imovel.bairro?.toLowerCase().includes(texto)));
     // setFilteredComerciais(comerciais.filter((imovel) => imovel.bairro?.toLowerCase().includes(texto)));
   };
+
+  const navigate = useNavigate();
+
+  const handleAddImovel = () => {
+    navigate('/create');
+  };
   const formatCurrency = (value) => {
     return value.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
   };
@@ -118,7 +124,8 @@ const RegistersList = () => {
               onChange={handleSearchChange}
             />
           </InputGroup>
-          <Button variant="primary">Adicionar Imóvel</Button>
+
+        <Button variant="primary" onClick={handleAddImovel}>Adicionar Imóvel</Button>
         </div>
       </div>
 
