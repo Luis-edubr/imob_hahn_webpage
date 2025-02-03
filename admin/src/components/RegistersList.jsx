@@ -65,7 +65,9 @@ const RegistersList = () => {
       console.log('Erro ao excluir registro:', error);
     }
   };
-
+  const handleEdit = (id, tipo) => {
+    navigate(`/edit/${tipo.toLowerCase()}/${id}`);
+  };
   const handleSearchChange = (e) => {
     const texto = e.target.value.toLowerCase();
     setSearch(texto);
@@ -100,7 +102,7 @@ const RegistersList = () => {
         <td>{imovel.bairro}</td>
         <td>{formatCurrency(imovel.valor)}</td>
         <td>
-          <Button variant="warning" className="me-2">
+          <Button variant="warning" className="me-2" onClick={() => handleEdit(imovel.idcasa, tipo)}>
             Editar
           </Button>
           <Button variant="danger" onClick={() => handleDelete(imovel.idcasa, tipo)}>Excluir</Button>

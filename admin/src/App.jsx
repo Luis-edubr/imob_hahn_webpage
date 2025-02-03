@@ -5,6 +5,7 @@ import Login from './pages/login/index.jsx';
 import Dashboard from './pages/dashboard/index.jsx';
 import ProtectedRoute from './components/ProtectedRoute.jsx';
 import Create from './pages/create/index.jsx';
+import Edit from './pages/edit/index.jsx';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/dashboard" element={<ProtectedRoute><AdminLayout><Dashboard /></AdminLayout></ProtectedRoute>} />
       <Route path="/create" element={<ProtectedRoute><AdminLayout><Create /></AdminLayout></ProtectedRoute>} />
+      <Route path="/edit/:tipo/:id" element={<ProtectedRoute><AdminLayout><Edit /></AdminLayout></ProtectedRoute>} />
     </Routes>
   </Router>
   );

@@ -29,3 +29,13 @@ export async function updateRegister(params, table){
         throw error;
     }
 }
+
+export async function getRegister(registerid, table){
+    try {
+        const response = api.get(`/admin/getRegisterById/${registerid}/${table}`);
+        return response;
+    } catch (error) {
+        console.log('Erro ao buscar registro:', error);
+        throw error;
+    }
+}

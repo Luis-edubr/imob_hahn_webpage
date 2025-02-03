@@ -58,7 +58,7 @@ const AdminLayout = ({ children }) => {
                             <ul className="nav nav-pills flex-column mb-auto">
 
                                 <li className="nav-item">
-                                    <Link to="/ciclos" className={`nav-link text-white ${window.location.pathname === '/imoveis' ? 'active' : ''}`}>
+                                    <Link to="/dashboard" className={`nav-link text-white ${window.location.pathname === '/imoveis' ? 'active' : ''}`}>
                                         <i className="fs-4 bi-house"></i> <span className="ms-1 d-none d-sm-inline">Imóveis</span>
                                     </Link>
                                 </li>
